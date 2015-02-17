@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Plantilla básica de Bootstrap</title>
  
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/material-wfont.min.css" rel="stylesheet" media="screen">   
- 
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+   <!-- Material Design for Bootstrap -->
+    <link href="css/material-wfont.min.css" rel="stylesheet">
+    <link href="css/ripples.min.css" rel="stylesheet">
+
+    <!-- Dropdown.js -->
+    <link href="http://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">
 
   </head>
   <body>
@@ -116,7 +120,7 @@
             <div class="col-lg-10">
                 <input type="password" class="form-control" id="inputPassword" placeholder="Contaseña">
                 <br>           
-                <p class="text-warning"><small>Si no estas registrado registrate <a href="#">aqui</a></small></p> 
+                <p class="text-warning"><small>Si no estas registrado registrate <a href="#registro" role="button" data-toggle="modal">aqui</a></small></p> 
            </div>
 
             </div>
@@ -283,9 +287,21 @@
 <!---fin modal nav bar--->
     <div class="container"><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">HTML SmartFlower</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Mattia La Spina</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>
       </div>        
-    <script src="http://code.jquery.com/jquery.js"></script>
+    <!---js code --->
+      <script src="http://code.jquery.com/jquery.js"></script>
  
-    <script src="js/bootstrap.min.js"></script>
+       <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+      
+       <!-- Dropdown.js -->
+    <script src="http://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
+    <script>
+      $("#dropdown-menu select").dropdown();
+    </script>
+        <script src="js/material.min.js"></script>
+    <script src="js/ripples.min.js"></script>
+    <script>
+      $.material.init();
+    </script>
       
   </body>
 </html>
