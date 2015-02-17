@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plantilla básica de Bootstrap</title>
+ 
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/material-wfont.min.css" rel="stylesheet" media="screen">   
+ 
+
+  </head>
+  <body>
+      <!---navbar inicio---->
+      
+      
+<div class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#LOGO" role="button" data-toggle="modal">SMARTFLOWER</a>
+    </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#sesion" role="button" data-toggle="modal">Iniciar sesion</a></li>
+            <li class="dropdown">
+                <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Menu<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#compartir" role="button" data-toggle="modal">Compartir</a></li>
+                    <li><a href="#nosotros" role="button" data-toggle="modal">Sobre nosotros</a></li>
+                    <li><a href="#donate" role="button" data-toggle="modal">Donate</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#registro" role="button" data-toggle="modal">Contratar servicio</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+      
+      
+<!---navbar fin--->      
+      
+      
+
+      
+      <div class="container">
+    <div class="jumbotron">
+        <p><small>Smartfloor es un proyecto de control de plantas inteligente donde puedes programar regados y ver en tiempo real el estado de tus plantas.</small></p>
+        <a href="#registro" role="button" data-toggle="modal" class="btn btn-default">Registrarse</a>
+        <a href="#compartir" role="button" data-toggle="modal" class="btn btn-info">Compartir</a>
+          </div>
+    </div>
+      
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+        <div class="jumbotron">
+          <h4>EL PROYECTO INICIAL</h4>
+          <p><small>Smartflower es un proyecto que empezó con la idea de monitorizar el estado de una planta y todas las condiciones meteorológicas que la afectasen.Pero este proyecto quería superarse, queremos inventar un soporte web que pueda facilitar la administración de múltiples sensores que monitorizen una o varias plantas y que puedan interactuar con ellas solo haciendo un Click, Por ejemplo regarlas o taparlas de la luz o activar un deshumidificado o humidificado del habiente, la calefacción,luces... infinidad de cosas que tendríamos que hacer físicamente en el lugar donde se alojan las o la planta, es mas el propio usuario puede aportar plantas a la base de datos dando los valores óptimos para su cuidado y así poder consultar esos valores con los sensores y poder automatizar una tarea , como por ejemplo el regado. Vamos a suponer que la humedad de la tierra esta baja (le falta agua a la planta) y esto los sensores nos lo indican en la pagina, pues vamos a regar la planta desde un botón alojando en la pagina, y si esto se pudiera programar por sequedad de la tierra y no solo por tiempo , como se hace hoy en día, ya que los valores la pagina web los puede procesar, y asi automatizar poniendo valores limites.Esto todavía esta en fase de desarollo, pero seria el fin del proyecto.</small></p>
+            </div>
+          </div>
+        
+        <div class="col-md-6">
+            <div class="jumbotron">
+          <h4>UN POCO SOBRE EL FUNCIONAMIENTO</h4>
+          <p><small>El funcionamiento es muy simple para el usuario y bastante complicado para nosotros, el usuario solo se tendrá que iniciar sesión o registrar en caso de que no lo este, justo después sera redirrecionado a un panel donde hay podrá administrar todos sus sensores, plantas,gráficos,valores... todo de una forma muy visual e interactivo , casi como un juego pero controlando plantas en la vida real, por parte del usuario solo eso de una forma simple.Mientras que si quieren adentrarse en el oscuro mundo del desarrollo de nuestro soporte , tenemos disponibles en GITHUB todos los archivos de desarrollo que hicieron falta para crear los sensores con Arduino ,el protocolo para enviar los datos en formato XML a la pagina, la forma en que Arduino establece la conexión, y esta misma pagina que recoge todos esos aburridos valores y los convierte en un juguete para el usuario. Ya sabemos que esto apenas explica nada sobre el funcionamiento pero yo Mattia La Spina estaré encantado de hacer una exposición para que esto se pueda entender mejor, ademas de un vídeo.</small></p><a href="https://github.com/smartfloor" title="Share on LinkedIn" target="_blank" class="btn btn-black">
+    Github</a><a href="https://plus.google.com/share?url=" title="Share on Google+" target="_blank" class="btn btn-material-red-A700">
+    youtube</a>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      <!---modals de la pagina --->
+      <!---modals navbar inicio---->
+      <!---LOGO modal --->
+      <div id="LOGO" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">PORQUE SMARTFLOWER</h4>
+            </div>
+            <div class="modal-body">
+                <p>Smartflower en realidad es el primer nombre que nos vino a la mente ya que usamos un soporte inteligente para administrar plantas, y entonces dirán y por que no Smartplant, seria mas adecuado pero nos gusto mas Smartflower, así que la respuesta es por gusto nada mas.</p>    
+            </div>  
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <div class="container"> 
+            <div class="modal-footer">
+                
+            </div>
+        </div>
+    </div>
+</div>
+      </div>
+                    <!---modal de inicio de sesion --->
+      <div id="sesion" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Iniciar sesion</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-lg-10">
+                <input type="email" class="form-control" id="inputEmail" placeholder="Usuario">
+            </div>
+                <br>
+                <div class="form-group">
+            <div class="col-lg-10">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Contaseña">
+                <br>           
+                <p class="text-warning"><small>Si no estas registrado registrate <a href="#">aqui</a></small></p> 
+           </div>
+
+            </div>
+        </div>
+            <br>
+           <br>
+            <br>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Enviar</button>
+       
+            <div class="container"> 
+            <div class="modal-footer">
+                
+            </div>
+        </div>
+    </div>
+</div>
+      </div>  
+      
+      <!---modal COMPARTIR --->
+      <div id="compartir" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Comparte la idea</h4>
+            </div>
+            <div class="modal-body">
+            <h5>LA IMPORTANCIA DE COMPARTIR</h5>
+                <p>“El que comparte y reparte le queda la mejor parte”. Por eso compartir es tan importante, gracias a las personas una idea se hace interesante.</p>
+   
+     <!-- Twitter -->
+<a href="http://twitter.com/home?status=" title="Share on Twitter" target="_blank" class="btn btn-info" style="background:#00acee"> Twitter</a>
+ <!-- Facebook -->
+<a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" target="_blank" class="btn btn-primary" style="background:#3b5998">
+                Facebook</a>
+    <!-- Google+ -->
+<a href="https://plus.google.com/share?url=" title="Share on Google+" target="_blank" class="btn btn-danger" style="background:#e93f2e">
+    Google+</a>
+    <!---github --->
+       <a href="https://github.com/smartfloor" title="Share on LinkedIn" target="_blank" class="btn btn-black">
+    Github</a>     
+            </div>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                
+            <div class="container"> 
+            <div class="modal-footer">
+                
+            </div>
+        </div>
+    </div>
+</div>
+      </div>
+      
+      <!---MODAL sobre nosotros --->
+           <div id="nosotros" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Yo y mi hermano</h4>
+            </div>
+            <div class="modal-body">
+                <p>Yo y mi hermano siempre hemos sido personas autodidactas y la informática,robótica... tecnología en general se nos presento desde edades muy tempranas como un estilo de vida mas que un trabajo o juego, con tan solo 13 años mi hermano es capaz de desarrollar un sensor y el protocolo de transferencia de datos para que este pueda facilitar los datos a este soporte web.Si queréis conocernos mas dejamos nuestras direcciones personales aquí abajo.</p><br><p class="text-right">Yo: Mattia La Spina:     <ins>mattials@hotmail.com</ins><br>Mi hermano: Francesco La Spina:   <ins>endes123321@hotmail.com</ins></p>    
+            </div> 
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <div class="container"> 
+            <div class="modal-footer">
+                
+            </div>
+        </div>
+    </div>
+</div>
+      </div> 
+      <!---modal Donate --->
+      <div id="donate" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Para que nuestra imaginación no tenga limites</h4>
+            </div>
+            <div class="modal-body">
+                <p>Siempre se plantean inconvenientes al empezar un nuevo proyecto, la mayoria de ellos son la falta de recursos.Mi familia siempre me apoyado sobre ideas innovativas, pero hay cosas que le vienen grandes.Hacer un donativo para que se desarollen nuevas ideas y productos, no es solo un donativo, sino la adquisicion de un nuevo producto , ya que estas facilitando a la creacion de el. Si donas ahora seras un promotor de nuestros proyectos. </p> <br>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+<input type="image" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal. La forma rápida y segura de pagar en Internet.">
+<img alt="" border="0" src="https://www.paypalobjects.com/es_ES/i/scr/pixel.gif" width="1" height="1">
+</form>
+            </div>  
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <div class="container"> 
+            <div class="modal-footer">
+                
+            </div>
+        </div>
+    </div>
+</div>
+      </div>
+      <!---Modal Contratar servicio--->
+      
+      <div id="registro" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Registro</h4>
+            </div>
+            <div class="modal-body">
+              <!---inicio registro body --->  
+                <form class="form-horizontal">
+    <fieldset>
+         <div class="form-group">
+            <div class="col-lg-10">
+                <input type="user" class="form-control" id="inputuser" placeholder="Usuario">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10">
+                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Contaseña">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10">
+                <input type="numero" class="form-control" id="inputnumero" placeholder="Numero de contacto">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputFile" class="col-lg-2 control-label">Foto</label>
+            <div class="col-lg-10">
+                <input type="text" readonly="" class="form-control floating-label" placeholder="Explorar...">
+                <input type="file" id="inputFile" multiple="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="textArea" class="col-lg-2 control-label">Informacion Adiccional</label>
+            <div class="col-lg-10">
+                <textarea class="form-control" rows="3" id="textArea"></textarea>
+            </div>
+        </div>
+        
+    </fieldset>
+</form>
+                <!---fin registro body --->
+            </div>  
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            <div class="container"> 
+            <div class="modal-footer">
+              
+            </div>
+        </div>
+    </div>
+</div>
+      </div>
+      
+<!---fin modal nav bar--->
+    <div class="container"><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">HTML SmartFlower</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Mattia La Spina</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>
+      </div>        
+    <script src="http://code.jquery.com/jquery.js"></script>
+ 
+    <script src="js/bootstrap.min.js"></script>
+      
+  </body>
+</html>
