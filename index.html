@@ -53,7 +53,7 @@
       
       <div class="container">
     <div class="jumbotron">
-        <p><small>Smartfloor es un proyecto de control de plantas inteligente donde puedes programar regados y ver en tiempo real el estado de tus plantas.</small></p>
+        <p><small>Smartflower es un proyecto de control de plantas inteligente donde puedes programar regados y ver en tiempo real el estado de tus plantas.</small></p>
         <a href="#registro" role="button" data-toggle="modal" class="btn btn-default">Registrarse</a>
         <a href="#compartir" role="button" data-toggle="modal" class="btn btn-info">Compartir</a>
           </div>
@@ -64,14 +64,14 @@
         <div class="col-md-6">
         <div class="jumbotron">
           <h4>EL PROYECTO INICIAL</h4>
-          <p><small>Smartflower es un proyecto que empezó con la idea de monitorizar el estado de una planta y todas las condiciones meteorológicas que la afectasen.Pero este proyecto quería superarse, queremos inventar un soporte web que pueda facilitar la administración de múltiples sensores que monitorizen una o varias plantas y que puedan interactuar con ellas solo haciendo un Click, Por ejemplo regarlas o taparlas de la luz o activar un deshumidificado o humidificado del habiente, la calefacción,luces... infinidad de cosas que tendríamos que hacer físicamente en el lugar donde se alojan las o la planta, es mas el propio usuario puede aportar plantas a la base de datos dando los valores óptimos para su cuidado y así poder consultar esos valores con los sensores y poder automatizar una tarea , como por ejemplo el regado. Vamos a suponer que la humedad de la tierra esta baja (le falta agua a la planta) y esto los sensores nos lo indican en la pagina, pues vamos a regar la planta desde un botón alojando en la pagina, y si esto se pudiera programar por sequedad de la tierra y no solo por tiempo , como se hace hoy en día, ya que los valores la pagina web los puede procesar, y asi automatizar poniendo valores limites.Esto todavía esta en fase de desarollo, pero seria el fin del proyecto.</small></p>
+          <p><small>Smartflower es un proyecto que empezó con la idea de monitorizar el estado de una planta y todas las condiciones meteorológicas que la afecten.Pero este proyecto quería superarse, queremos crear un soporte web que pueda facilitar la administración de múltiples sensores que monitorizen una o varias plantas y que puedan interactuar con ellas solo haciendo un Click, Por ejemplo regarlas o taparlas de la luz o activar un deshumidificado o humidificado del ambiente, la calefacción,luces... infinidad de cosas que tendríamos que hacer físicamente en el lugar donde se alojan las o la planta, es mas el propio usuario puede aportar plantas a la base de datos dando los valores óptimos para su cuidado y así poder consultar esos valores con los sensores y poder automatizar una tarea , como por ejemplo el regado. Vamos a suponer que la humedad de la tierra esta baja (le falta agua a la planta) y esto los sensores nos lo indican en la página, pues vamos a regar la planta desde un botón alojando en la página, y si esto se pudiera programar por sequedad de la tierra y no solo por tiempo , como se hace hoy en día, ya que los valores de la página web los puede procesar, y asi automatizar poniendo valores limites.Esto todavía esta en fase de desarollo, pero seria el fin del proyecto.</small></p>
             </div>
           </div>
         
         <div class="col-md-6">
             <div class="jumbotron">
           <h4>UN POCO SOBRE EL FUNCIONAMIENTO</h4>
-          <p><small>El funcionamiento es muy simple para el usuario y bastante complicado para nosotros, el usuario solo se tendrá que iniciar sesión o registrar en caso de que no lo este, justo después sera redirrecionado a un panel donde hay podrá administrar todos sus sensores, plantas,gráficos,valores... todo de una forma muy visual e interactivo , casi como un juego pero controlando plantas en la vida real, por parte del usuario solo eso de una forma simple.Mientras que si quieren adentrarse en el oscuro mundo del desarrollo de nuestro soporte , tenemos disponibles en GITHUB todos los archivos de desarrollo que hicieron falta para crear los sensores con Arduino ,el protocolo para enviar los datos en formato XML a la pagina, la forma en que Arduino establece la conexión, y esta misma pagina que recoge todos esos aburridos valores y los convierte en un juguete para el usuario. Ya sabemos que esto apenas explica nada sobre el funcionamiento pero yo Mattia La Spina estaré encantado de hacer una exposición para que esto se pueda entender mejor, ademas de un vídeo.</small></p><a href="https://github.com/smartfloor" title="Share on LinkedIn" target="_blank" class="btn btn-black">
+          <p><small>El funcionamiento es muy simple para el usuario y bastante complicado para nosotros, el usuario solo tendrá que iniciar sesión o registrarse, justo después sera redirrecionado a un panel donde podrá administrar todos sus sensores, plantas,gráficos,valores... todo de una forma muy visual e interactivo , casi como un juego pero controlando plantas en la vida real, por parte del usuario será simple.Mientras que si quieren adentrarse en el oscuro mundo del desarrollo de nuestro soporte , tenemos disponibles en GITHUB todos los archivos de desarrollo que hicieron falta para crear los sensores con Arduino, el protocolo para enviar los datos en formato XML a la página, la forma en que Arduino establece la conexión, y esta misma pagina que recoge todos esos aburridos valores y los convierte en un juguete para el usuario. Ya sabemos que esto apenas explica nada sobre el funcionamiento pero yo estaré encantado de hacer una exposición para que esto se pueda entender mejor, ademas de un vídeo.</small></p><a href="https://github.com/smartfloor" title="Share on LinkedIn" target="_blank" class="btn btn-black">
     Github</a><a href="https://plus.google.com/share?url=" title="Share on Google+" target="_blank" class="btn btn-material-red-A700">
     youtube</a>
     
@@ -104,6 +104,7 @@
 </div>
       </div>
                     <!---modal de inicio de sesion --->
+      
       <div id="sesion" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -112,17 +113,19 @@
                 <h4 class="modal-title">Iniciar sesion</h4>
             </div>
             <div class="modal-body">
+                <form method="post" class="signin" action="login.php">
+                    <fieldset class="textbox">
                 <div class="col-lg-10">
-                <input type="email" class="form-control" id="inputEmail" placeholder="Usuario">
+                <input type="text" class="form-control" id="username" placeholder="Usuario" autocomplete="on" requiered>
             </div>
                 <br>
                 <div class="form-group">
             <div class="col-lg-10">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Contaseña">
+                <input type="password" class="form-control" id="Password" placeholder="Contaseña" autocomplete="on" requiered>
                 <br>           
                 <p class="text-warning"><small>Si no estas registrado registrate <a href="#registro" role="button" data-toggle="modal">aqui</a></small></p> 
            </div>
-
+</fieldset>
             </div>
         </div>
             <br>
@@ -130,7 +133,7 @@
             <br>
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-primary">Enviar</button>
-       
+            </form>
             <div class="container"> 
             <div class="modal-footer">
                 
@@ -224,6 +227,8 @@
       </div>
       <!---Modal Contratar servicio--->
       
+      
+      
       <div id="registro" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -232,8 +237,10 @@
                 <h4 class="modal-title">Registro</h4>
             </div>
             <div class="modal-body">
-              <!---inicio registro body --->  
-                <form class="form-horizontal">
+              <!---inicio registro body --->
+                
+                
+                <form method="post" class="form-horizontal" action="registro.php">
     <fieldset>
          <div class="form-group">
             <div class="col-lg-10">
@@ -242,39 +249,34 @@
         </div>
         <div class="form-group">
             <div class="col-lg-10">
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                <input type="email" class="form-control" id="inputemail" placeholder="Email" requiered>
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Contaseña">
+                <input type="password" class="form-control" id="inputpassword" placeholder="Contaseña" requiered>
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10">
-                <input type="numero" class="form-control" id="inputnumero" placeholder="Numero de contacto">
+                <input type="numero" class="form-control" id="inputnumero" placeholder="Numero de contacto" requiered>
             </div>
+            
         </div>
         <div class="form-group">
-            <label for="inputFile" class="col-lg-2 control-label">Foto</label>
             <div class="col-lg-10">
-                <input type="text" readonly="" class="form-control floating-label" placeholder="Explorar...">
-                <input type="file" id="inputFile" multiple="">
+                <input type="text" class="form-control" id="inputdir" placeholder="Dirrecion" requiered>
             </div>
+            
         </div>
-        <div class="form-group">
-            <label for="textArea" class="col-lg-2 control-label">Informacion Adiccional</label>
-            <div class="col-lg-10">
-                <textarea class="form-control" rows="3" id="textArea"></textarea>
-            </div>
-        </div>
-        
+       
     </fieldset>
-</form>
+
                 <!---fin registro body --->
             </div>  
               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
             <div class="container"> 
             <div class="modal-footer">
               
