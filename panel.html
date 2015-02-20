@@ -59,13 +59,7 @@ session_Start();
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-user"></span> 
                         <strong>
-<?php
 
-$user ="$_SESSION['myusername'];
-
-echo "$user";
-
-?>
                                        
                         </strong>
                         <span class="glyphicon glyphicon-chevron-down"></span>
@@ -79,8 +73,8 @@ echo "$user";
                                             <span class="glyphicon glyphicon-user icon-size"></span>
                                         </p>
                                     </div>
-                                    <div class="col-lg-8">
-                                        <p class="text-left">
+                                    <div class="col-lg-12">
+                                        <p>
                                             <a href="#" class="btn btn-primary btn-block">Administrar cuenta</a>
                                         </p>
                                     </div>
@@ -335,6 +329,20 @@ echo "$user";
     <script>
       $.material.init();
     </script>
-      
+      <script>
+    $(document).ready(function(){   
+         $.ajax({    
+            url: "islogin.php",  
+            success: function(html){  
+              if(!html=='true')  
+              {  
+                    window.location.href = "index.html";
+              }    
+            },  
+ 
+        });  
+         return false;   
+}); </script>
+          
   </body>
 </html>

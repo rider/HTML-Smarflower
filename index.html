@@ -133,7 +133,7 @@
                 <br>
                 <div class="form-group">
             <div class="col-lg-10">
-                <input type="password" class="form-control" id="Password" placeholder="Contaseña" autocomplete="on" requiered>
+                <input type="password" class="form-control" id="password" placeholder="Contaseña" autocomplete="on" requiered>
                 <br>           
                 <p class="text-warning"><small>Si no estas registrado registrate <a href="#registro" role="button" data-toggle="modal">aqui</a></small></p> 
            </div>
@@ -333,7 +333,7 @@ $('#cargando').hide();
               }  
               else  
               {  
-                     $('#loginincorrecto').show();
+                     $('#loginincorrecto').show().delay(1000).hide();
               }  
             },  
             beforeSend:function()  
