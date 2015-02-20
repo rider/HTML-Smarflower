@@ -12,7 +12,7 @@ session_Start();
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Plantilla básica de Bootstrap</title>
+    <title>SmartFlower</title>
  
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
    <!-- Material Design for Bootstrap -->
@@ -35,7 +35,7 @@ session_Start();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span> 
             </button>
-            <a target="_blank" href="panel.html" class="navbar-brand">SMARTFLOWER
+            <a target="_blank" href="index.html" class="navbar-brand">SMARTFLOWER
         </a>
         </div>
         <div class="collapse navbar-collapse">
@@ -48,7 +48,7 @@ session_Start();
                     <ul class="dropdown-menu">
                         <li><a href="#">Sensores</a></li>
                         <li><a href="plantas.html">Plantas</a></li>
-                        <li><a href="alta.php">Bases de datos de plantas</a></li>
+                        <li><a href="alta.html">Bases de datos de plantas</a></li>
                         <li><a href="#errore" role="button" data-toggle="modal">Reportar error y contacto</a></li>
                     </ul>
                  </li>              
@@ -119,11 +119,11 @@ echo "$user";
         <div class="form-group">
             <label for="inputnombre" class="col-lg-2 control-label">Nombre de la especie</label>
             <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputnombre" placeholder="nombre">
+                <input type="text" class="form-control" id="inputnombre" placeholder="nombre" maxlength="25">
             </div>
         </div>
         <div class="form-group">
-            <label for="inputdesc" class="col-lg-2 control-label">Descripción</label>
+            <label for="inputdesc" class="col-lg-2 control-label" maxlegth="300">Descripción</label>
             <div class="col-lg-10">
                <textarea class="form-control" rows="3" id="inputdesc"></textarea>
                 <span class="help-block">Pequeña descripción que se mostrara al lado de la planta.</span>
@@ -140,7 +140,7 @@ echo "$user";
     <label class="control-label">Temperatura optima <small>Ejemplo (18-24).</small></label>
     <div class="input-group">
         <span class="input-group-addon">Cº</span>
-        <input type="text" class="form-control" placeholder="min-maxima">
+        <input type="text" class="form-control" placeholder="min-maxima" maxlength="5">
         </span>
     </div>
 </div>
@@ -148,7 +148,7 @@ echo "$user";
     <label class="control-label">Humedad optima <small>Ejemplo (40-60).</small></label>
     <div class="input-group">
         <span class="input-group-addon">%</span>
-        <input type="text" class="form-control" placeholder="min-maxima">
+        <input type="text" class="form-control" placeholder="min-maxima" maxlength="5">
         </span>
     </div>
 </div>
@@ -156,7 +156,7 @@ echo "$user";
     <label class="control-label">Luminosidad optima <small>Ejemplo (70-80).</small></label>
     <div class="input-group">
         <span class="input-group-addon">%</span>
-        <input type="text" class="form-control" placeholder="min-maxima">
+        <input type="text" class="form-control" placeholder="min-maxima" maxlength="7">
         </span>
     </div>
 </div>
@@ -164,7 +164,7 @@ echo "$user";
     <label class="control-label">Humedad minima de la tierra <small>Ejemplo (30).</small></label>
     <div class="input-group">
         <span class="input-group-addon">%</span>
-        <input type="text" class="form-control" placeholder="min">
+        <input type="text" class="form-control" placeholder="min" maxlength="2">
         </span>
     </div>
 </div>
