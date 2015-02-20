@@ -1,10 +1,3 @@
-"
-
-"<?php
-
-session_Start();
-
-"?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -58,7 +51,7 @@ session_Start();
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-user"></span> 
-                        <strong>
+                        <strong id="username">
 
                                        
                         </strong>
@@ -137,12 +130,8 @@ session_Start();
         </tr>
     </thead>
     <tbody>
-        <tr class="active">
-            <td>1</td>
-            <td>18-25Cº</td>
-            <td>60-70%</td>
-            <td>10%</td>
-            <td>60-70%</td>
+        <tr class="active" id="tb_info">
+            
         </tr>
     </tbody>
 </table>
@@ -329,7 +318,7 @@ session_Start();
     <script>
       $.material.init();
     </script>
-      <script>
+      <script type="text/javascript">
     $(document).ready(function(){   
          $.ajax({    
             url: "islogin.php",  
@@ -343,6 +332,37 @@ session_Start();
         });  
          return false;   
 }); </script>
+          
+     <script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "getpaneldata.php",
+            cache: false,
+            dataType: "xml",
+            success: function(xml) {
+                $(xml).find('user-info').each(function(){
+                    var name = $(this).find('name').text();
+                    $("#username").append("<h4>"+name+"</h4>");
+                }),
+                $(xml).find('plant-info').each(function(){
+                    var name = $(this).find('name').text(),
+                        description = $(this).find('description').text(),
+                        temp = $(this).find('temp').text(),
+                        humidity = $(this).find('humidity').text(),
+                        dry = $(this).find('dry').text(),
+                        daytime = $(this).find('daytime').text();
+                        $("#tb_info").append("<td>1</td>"
+                                              +"<td>"+temp+"Cº</td>"
+                                              +"<td>"+humidity+"%</td>"
+                                              +"<td>"+dry+"%</td>"
+                                              +"<td>"+daytime+"%</td>");
+                });
+            }
+        });
+        //despues aqui hacer un infinite loop obteniedo los realdata.
+    });
+</script>
           
   </body>
 </html>
