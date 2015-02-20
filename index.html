@@ -114,7 +114,18 @@
                 <h4 class="modal-title">Iniciar sesion</h4>
             </div>
             <div class="modal-body">
-                <form method="post" class="signin" action="login.php">
+                
+                <!---mensaje de error --->
+                <div class="alert alert-dismissable alert-warning" id="loginincorrecto">
+                    <h4>warning</h4>
+                    <p>Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna,                       </p>
+                        </div>
+                <!--- mensaje de cargando --->
+                 <div class="alert alert-dismissable alert-success" id="cargando">
+                    <h4>cargando</h4>
+                    <p>Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna,                       </p>
+                        </div>
+                <form method="post" class="signin" action="#">
                     <fieldset class="textbox">
                 <div class="col-lg-10">
                 <input type="text" class="form-control" id="username" placeholder="Usuario" autocomplete="on" requiered>
@@ -128,7 +139,7 @@
            </div>
                     </fieldset>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button value="submit" type="button" class="btn btn-primary">Enviar</button>
+                <button value="submit" type="button" class="btn btn-primary" id="login">Enviar</button>
 
                          </form>
             </div>
@@ -236,10 +247,11 @@
                 <h4 class="modal-title">Registro</h4>
             </div>
             <div class="modal-body">
+                <p>registro no habilitado.</p>
               <!---inicio registro body --->
                 
                 
-                <form method="post" class="form-horizontal" action="registro.php">
+                <!--<form method="post" class="form-horizontal" action="registro.php">
     <fieldset>
          <div class="form-group">
             <div class="col-lg-10">
@@ -269,12 +281,12 @@
             
         </div>
        
-    </fieldset>
+    </fieldset>--->
 
                 <!---fin registro body --->
             </div>  
               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <!--<button type="submit" class="btn btn-primary">Enviar</button>-->
                 </form>
             <div class="container"> 
             <div class="modal-footer">
@@ -290,9 +302,7 @@
       </div>        
     <!---js code --->
       <script src="http://code.jquery.com/jquery.js"></script>
- 
        <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
-      
        <!-- Dropdown.js -->
     <script src="http://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
     <script>
@@ -304,5 +314,52 @@
       $.material.init();
     </script>
       
+      <script type="text/javascript">  
+$(document).ready(function(){   
+$('#loginincorrecto').hide();
+$('#cargando').hide();
+   $("#login").click(function(){  
+        username=$("#username").val();  
+        password=$("#password").val();  
+         $.ajax({  
+            type: "POST",  
+            url: "login.php",  
+            data: "name="+username+"&pwd="+password,  
+            success: function(html){  
+              if(html=='true')  
+              {  
+                    window.location.href = "panel.html";
+                    $('#cargando').show();
+              }  
+              else  
+              {  
+                     $('#loginincorrecto').show();
+              }  
+            },  
+            beforeSend:function()  
+            {  
+                   
+            }  
+        });  
+         return false;  
+    });  
+});  
+</script>  
+      
+      <script type="text/javascript">  
+$(document).ready(function(){   
+         $.ajax({    
+            url: "islogin.php",  
+            success: function(html){  
+              if(html=='true')  
+              {  
+                    window.location.href = "panel.html";
+              }    
+            },  
+ 
+        });  
+         return false;   
+});  
+</script>  
   </body>
 </html>
