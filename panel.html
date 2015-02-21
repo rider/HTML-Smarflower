@@ -112,9 +112,8 @@
         <div class="row-picture">
             <img class="circle" src="http://media.uccdn.com/images/2/3/3/img_cuando_sembrar_los_tomates_332_orig.jpg" alt="icon">
         </div>
-        <div class="row-content">
-            <h4 class="list-group-item-heading">Tomate Comun</h4>
-            <p class="list-group-item-text">Tomate con origen en africa</p><label href="#" class="label label-default">mas</label>
+        <div class="row-content" id="plant_info">
+            
         </div>
     </div>
             
@@ -145,31 +144,8 @@
             <th>Tiempo de riego</th>
         </tr>
     </thead>
-    <tbody>
-        <tr class="active">
-            <td>1</td>
-            <td>2015/02/19</td>
-            <td>12:20</td>
-            <td>5 min</td>
-        </tr>
-        <tr class="active">
-            <td>2</td>
-            <td>2015/02/17</td>
-            <td>22:20</td>
-            <td>15 min</td>
-        </tr>
-        <tr class="active">
-            <td>3</td>
-            <td>2015/02/13</td>
-            <td>17:20</td>
-            <td>5 min</td>
-        </tr>
-        <tr class="active">
-            <td>4</td>
-            <td>2015/02/09</td>
-            <td>18:40</td>
-            <td>10 min</td>
-        </tr>
+    <tbody id="water_info">
+
     </tbody>
 </table> 
        <div class="container">
@@ -200,7 +176,7 @@
 	<div class="row">
 		<div class="col-md-3">
     <div class="jumbotron">
-            <h4><strong>Humedad de la tierra </strong><small><strong>60%</strong></small></h4>
+            <h4><strong>Humedad de la tierra </strong><small><strong id="dirtH">60%</strong></small></h4>
         
                   <div class="progress">
     <div class="progress-bar progress-bar-basic" style="width: 60%"></div>
@@ -212,7 +188,7 @@
         
         <div class="col-md-3">
    <div class="jumbotron">
-          <h4><strong>Temperatura </strong><small><strong>20Cº</strong></small></h4>
+          <h4><strong>Temperatura </strong><small><strong id="temp">20Cº</strong></small></h4>
          <div class="progress">
     <div class="progress-bar progress-bar-basic" style="width: 20%"></div>
 </div>
@@ -222,7 +198,7 @@
         
         <div class="col-md-3">
    <div class="jumbotron">
-          <h4><strong>Luz </strong><small><strong>80%</strong></small></h4>
+          <h4><strong>Luz </strong><small><strong id="brigness">80%</strong></small></h4>
                   <div class="progress">
     <div class="progress-bar progress-bar-basic" style="width: 80%"></div>
 </div>
@@ -232,7 +208,7 @@
         
         <div class="col-md-3">
    <div class="jumbotron">
-            <h4><strong>Humedad </strong><small><strong>30%</strong></small></h4>
+            <h4><strong>Humedad </strong><small><strong id="humidity">30%</strong></small></h4>
                      <div class="progress">
     <div class="progress-bar progress-bar-basic" style="width: 30%"></div>
 </div>
@@ -337,7 +313,6 @@
         $.ajax({
             type: "GET",
             url: "getpaneldata.php",
-            cache: false,
             dataType: "xml",
             success: function(xml) {
                 $(xml).find('user-info').each(function(){
@@ -356,10 +331,49 @@
                                               +"<td>"+humidity+"%</td>"
                                               +"<td>"+dry+"%</td>"
                                               +"<td>"+daytime+"%</td>");
+                        $('plant_info').append('<h4 class="list-group-item-heading">'+name+'</h4>'
+            +'<p class="list-group-item-text">'+description+'</p><label href="#" class="label label-default">mas</label>');
+                }),
+                $(xml).find('water-info').each(function(){
+                    var id = $(this).find('id').text(),
+                        date = $(this).find('date').text(),
+                        time = $(this).find('time').text(),
+                        watertime = $(this).find('watertime').text();
+                    $('water_info').append("<tr class='active'>"
+                                                +"<td>"+id+"</td>"
+                                                +"<td>"+date+"</td>"
+                                                +"<td>"+time+"</td>"
+                                                +"<td>"+watertime+"</td>"
+                                            +"</tr>");
+
                 });
             }
         });
-        //despues aqui hacer un infinite loop obteniedo los realdata.
+        var livedata = function() {
+        $.ajax({
+            type: "GET",
+            url: "getlivedata.php",
+            dataType: "xml",
+            success: function(xml) {
+                    $(xml).find('livedata').each(function(){
+                    var dirthumidity = $(this).find('dirthumidity').text(),
+                        temp = $(this).find('temp').text(),
+                        humidity = $(this).find('humidity').text(),
+                        brigness = $(this).find('brigness').text();
+                        $('dirtH').text(dirthumidity+"%");
+                        
+                        $('temp').text(temp+"C");
+                        
+                        $('brigness').text(brigness+"%");
+                        
+                        $('humidity').text(humidity+"%");
+
+                }),
+            }
+          });  
+       };
+       setInterval(livedata, 5000);
+       livedata(); 
     });
 </script>
           
