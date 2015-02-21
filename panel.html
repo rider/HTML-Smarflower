@@ -179,7 +179,7 @@
             <h4><strong>Humedad de la tierra </strong><small><strong id="dirtH">60%</strong></small></h4>
         
                   <div class="progress">
-    <div class="progress-bar progress-bar-basic" style="width: 60%"></div>
+    <div class="progress-bar progress-bar-basic" style="width: 60%" id="dirtHp"></div>
                       
 </div>
         <label href="#" class="label label-default">mas</label>
@@ -190,7 +190,7 @@
    <div class="jumbotron">
           <h4><strong>Temperatura </strong><small><strong id="temp">20Cº</strong></small></h4>
          <div class="progress">
-    <div class="progress-bar progress-bar-basic" style="width: 20%"></div>
+    <div class="progress-bar progress-bar-basic" style="width: 20%" id="tempp"></div>
 </div>
        <label href="#" class="label label-default">mas</label>
             </div>
@@ -200,7 +200,7 @@
    <div class="jumbotron">
           <h4><strong>Luz </strong><small><strong id="brigness">80%</strong></small></h4>
                   <div class="progress">
-    <div class="progress-bar progress-bar-basic" style="width: 80%"></div>
+    <div class="progress-bar progress-bar-basic" style="width: 80%" id="brignessp"></div>
 </div>
        <label href="#" class="label label-default">mas</label>
             </div>
@@ -210,7 +210,7 @@
    <div class="jumbotron">
             <h4><strong>Humedad </strong><small><strong id="humidity">30%</strong></small></h4>
                      <div class="progress">
-    <div class="progress-bar progress-bar-basic" style="width: 30%"></div>
+    <div class="progress-bar progress-bar-basic" style="width: 30%" id="humidityp"></div>
 </div>
        <label href="#" class="label label-default">mas</label>
             </div>
@@ -294,9 +294,24 @@
       $.material.init();
     </script>
       <script type="text/javascript">
-    $(document).ready(function(){   
-         $.ajax({    
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+          </script>
+     <script type="text/javascript">
+    $(document).ready(function () {
+    if(getUrlVars()['plantid'] == null)
+    {
+      //  window.location.href = "plantas.html";
+    }
+        $.ajax({
+            type: "GET",
             url: "islogin.php",  
+            dataType: "html",
             success: function(html){  
               if(!html=='true')  
               {  
@@ -305,11 +320,6 @@
             },  
  
         });  
-         return false;   
-}); </script>
-          
-     <script type="text/javascript">
-    $(document).ready(function () {
         $.ajax({
             type: "GET",
             url: "getpaneldata.php",
@@ -361,14 +371,14 @@
                         humidity = $(this).find('humidity').text(),
                         brigness = $(this).find('brigness').text();
                         $('dirtH').text(dirthumidity+"%");
-                        
+                        $('dirtHp').css( "width", dirthumidity+"%");
                         $('temp').text(temp+"C");
-                        
+                        $('tempp').css( "width", temp+"%");
                         $('brigness').text(brigness+"%");
-                        
+                        $('brignessp').css( "width", brigness+"%");     
                         $('humidity').text(humidity+"%");
-
-                }),
+                        $('humidityp').css( "width", humidity+"%");  
+                });
             }
           });  
        };
