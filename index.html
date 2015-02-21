@@ -314,13 +314,26 @@
       $.material.init();
     </script>
       
-      <script type="text/javascript">  
-$(document).ready(function(){   
+      <script type="text/javascript"> 
 $('#loginincorrecto').hide();
 $('#cargando').hide();
+$(document).ready(function(){
+$.ajax({
+            type: "GET",
+            url: "islogin.php",  
+            dataType: "html",
+            success: function(html){ 
+            console.log(html);
+              if(html=='true')  
+              {  
+                    window.location.href = "panel.html";
+              }    
+            },
+});
    $("#login").click(function(){  
         username=$("#username").val();  
-        password=$("#password").val();  
+        password=$("#password").val(); 
+       console.log(username+password);
          $.ajax({  
             type: "POST",  
             url: "login.php",  
@@ -329,36 +342,20 @@ $('#cargando').hide();
               if(html=='true')  
               {  
                     window.location.href = "panel.html";
-                    $('#cargando').show();
+                    $('#cargando').slideDown( 400 );
               }  
               else  
               {  
-                     $('#loginincorrecto').show().delay(1000).hide();
+                  console.log("login incorrecto");
+                  $('#loginincorrecto').slideDown( 400 ).delay( 7000 ).slideUp( 400 );
               }  
             },  
             beforeSend:function()  
             {  
                    
             }  
-        });  
-         return false;  
+        });    
     });  
-});  
-</script>  
-      
-      <script type="text/javascript">  
-$(document).ready(function(){   
-         $.ajax({    
-            url: "islogin.php",  
-            success: function(html){  
-              if(html=='true')  
-              {  
-                    window.location.href = "panel.html";
-              }    
-            },  
- 
-        });  
-         return false;   
 });  
 </script>  
   </body>

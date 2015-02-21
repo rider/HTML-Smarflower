@@ -312,7 +312,8 @@ function getUrlVars() {
             type: "GET",
             url: "islogin.php",  
             dataType: "html",
-            success: function(html){  
+            success: function(html){ 
+            console.log(html);
               if(!html=='true')  
               {  
                     window.location.href = "index.html";

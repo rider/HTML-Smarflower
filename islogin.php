@@ -1,5 +1,7 @@
 <?php
 if(isset($_SESSION['pass'])){
-    echo true;
+    echo 'true';
+} else {
+    echo 'false';
 }
 ?>
