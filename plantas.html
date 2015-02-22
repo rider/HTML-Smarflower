@@ -317,13 +317,13 @@
                         name = $(this).find('name').text(),
                         description = $(this).find('description').text(),
                         user = $(this).find('user').text(),
-                        user_id = $(this).find('user_id').text();
+                        plantid = $(this).find('plantid').text();
                     $("#plants").append('<tr class="active">'
                                             +'<td>'+id+'</td>'
                                             +'<td>'+name+'</td>'
                                             +'<td>'+description+'</td>'
                                             +'<td>'+user+'</td>'
-                                            +'<td><a ><button href="panel.html?plantid='+user_id+'" class="btn btn-primary pull-left btn-sm">Seleccionar</button></td>'
+                                            +'<td><a ><button href="panel.html?plantid='+plantid+'" class="btn btn-primary pull-left btn-sm">Seleccionar</button></td>'
                                             +'</tr>');
                 });   
             },  
