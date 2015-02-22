@@ -116,56 +116,8 @@
             <th>seleccionar</th>
         </tr>
     </thead>
-    <tbody>
-        <tr class="active">
-            <td>1</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="active">
-            <td>2</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="active">
-            <td>3</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="active">
-            <td>4</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="active">
-            <td>5</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="active">
-            <td>6</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="active">
-            <td>7</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
+    <tbody id="plants">
+
     </tbody>
 </table>              
           
@@ -341,23 +293,43 @@
       $.material.init();
     </script>
     <script type="text/javascript">
-        $.ajax({
+   $(document).ready(function () {
+  $.ajax({
             type: "GET",
             url: "islogin.php",  
             dataType: "html",
-            success: function(html){
-                console.log(html);
-              if(!html == 'true') 
+            success: function(html){ 
+            console.log(html);
+              if(!html=='true')  
               {  
-                  console.log(html);
                     window.location.href = "index.html";
               }    
             },  
  
-        });
-          
-          
-          
+        });  
+  $.ajax({
+            type: "GET",
+            url: "getplants.php",  
+            dataType: "xml",
+            success: function(xml){ 
+                $(xml).find('plants').each(function(){
+                    var id = $(this).find('id').text(),
+                        name = $(this).find('name').text(),
+                        description = $(this).find('description').text(),
+                        user = $(this).find('user').text(),
+                        user_id = $(this).find('user_id').text();
+                    $("#plants").append('<tr class="active">'
+                                            +'<td>'+id+'</td>'
+                                            +'<td>'+name+'</td>'
+                                            +'<td>'+description+'</td>'
+                                            +'<td>'+user+'</td>'
+                                            +'<td><a ><button href="panel.html?plantid='+user_id+'" class="btn btn-primary pull-left btn-sm">Seleccionar</button></td>'
+                                            +'</tr>');
+                });   
+            },  
+ 
+        });       
+    });         
           </script>
   </body>
 </html>
