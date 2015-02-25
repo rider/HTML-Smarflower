@@ -324,6 +324,7 @@ function getUrlVars() {
         $.ajax({
             type: "GET",
             url: "getpaneldata.php",
+            data: "plantid="+getUrlVars()['plantid'],
             dataType: "xml",
             success: function(xml) {
                 $(xml).find('user-info').each(function(){
@@ -364,6 +365,7 @@ function getUrlVars() {
         $.ajax({
             type: "GET",
             url: "getlivedata.php",
+            data: "plantid="+getUrlVars()['plantid'], 
             dataType: "xml",
             success: function(xml) {
                     $(xml).find('livedata').each(function(){

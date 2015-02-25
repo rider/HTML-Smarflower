@@ -4,7 +4,7 @@ $db = new MysqliDb ('host', 'username', 'password', 'databaseName') or die("erro
 date_default_timezone_set("UTC");
 $plantid = $_get['plantid'];
 
-$db->where ('id', $plantid);
+$db->where ('plantid', $plantid);
 $sensorid = $db->getOne("sensors");
 
 $db->where ('id', $sensorid['id']);
@@ -12,7 +12,7 @@ $db->where('date', date('Y-m-d'));
 $db->orderBy("time","desc");
 $data = $db->getOne("state");
 
-$xml = new SimpleXMLElement('<xml/>');
+$xml = new SimpleXMLElement($xml->asXML());
     $livedata = $xml->addChild('livedata');
     $livedata->addChild('dirthumidity', $data['humidity']);
     $livedata->addChild('temp', $data['temp']);
