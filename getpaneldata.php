@@ -14,6 +14,11 @@ $plantid = $db->getOne("sensors");
 $db->where ('id', $plantid['planttype']);
 $planttype = $db->getOne("planttypes");
 
+$db->where ('id', $plantid['planttype']);
+$db->orderBy("time","Desc");
+$db->orderBy("date","Desc");
+$waterinfo = $db->get("water", 4);
+
 $xml = new SimpleXMLElement($xml->asXML());
     $data = $xml->addChild('paneldata');
     $user = $data->addChild('user-info');
@@ -25,7 +30,13 @@ $xml = new SimpleXMLElement($xml->asXML());
     $plant->addChild('humidity', $planttype['humidity']);
     $plant->addChild('dry', $planttype['dry']);
     $plant->addChild('daytime', $planttype['daytime']);
-
+    $water = $data->addChild('water-info');
+    foreach ($waterinfo as $wa) {
+        $water->addChild('id', $wa['id']);
+        $water->addChild('date', $wa['date']);
+        $water->addChild('time', $wa['time']);
+        $water->addChild('watertime', $wa['wtertime']);
+    }
 Header('Content-type: text/xml');
 print($xml->asXML());
 
