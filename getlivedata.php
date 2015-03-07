@@ -12,7 +12,7 @@ $db->where('date', date('Y-m-d'));
 $db->orderBy("time","desc");
 $data = $db->getOne("state");
 
-$xml = new SimpleXMLElement($xml->asXML());
+$xml = new SimpleXMLElement('<?xml version="1.0" encoding="utf-8"?><a></a>');
     $livedata = $xml->addChild('livedata');
     $livedata->addChild('dirthumidity', $data['humidity']);
     $livedata->addChild('temp', $data['temp']);

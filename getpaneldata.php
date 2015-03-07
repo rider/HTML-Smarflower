@@ -19,7 +19,7 @@ $db->orderBy("time","Desc");
 $db->orderBy("date","Desc");
 $waterinfo = $db->get("water", 4);
 
-$xml = new SimpleXMLElement($xml->asXML());
+$xml = new SimpleXMLElement('<?xml version="1.0" encoding="utf-8"?><a></a>');
     $data = $xml->addChild('paneldata');
     $user = $data->addChild('user-info');
     $user->addChild('name', $userdata['username']);
