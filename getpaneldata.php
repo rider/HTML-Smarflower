@@ -9,12 +9,12 @@ $db->where ('password', $_SESSION['pass']);
 $userdata = $db->getOne("user");
 
 $db->where ('plantid', $plantid);
-$plantid = $db->getOne("sensors");
+$plantidd = $db->getOne("sensors");
 
-$db->where ('id', $plantid['planttype']);
+$db->where ('id', $plantidd['planttype']);
 $planttype = $db->getOne("planttypes");
 
-$db->where ('id', $plantid['planttype']);
+$db->where ('id', $plantidd['plantid']);
 $db->orderBy("time","Desc");
 $db->orderBy("date","Desc");
 $waterinfo = $db->get("water", 4);

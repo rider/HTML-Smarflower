@@ -104,6 +104,10 @@
         <h3 class="panel-title">Mis plantas <small> Por defecto estan ordenados alfabeticamente</small></h3>
     </div>
     <div class="panel-body">
+        <div class="form-group">
+    <input class="form-control floating-label" id="buscar" type="text" placeholder="Busqueda..."> 
+    <button type="submit" class="btn btn-primary pull-left btn-sm">Enviar</button>        
+</div>
           
     <table class="table table-striped table-hover ">
     <thead>
@@ -121,88 +125,6 @@
 </table>              
           
 </div>
-          
-          
-          
-          <!---BUSQUEDA --->
-      <div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">Busqueda <small>Por defecto estan ordenados alfabeticamente</small></h3>
-    </div>
-    <div class="panel-body">
-        <div class="form-group">
-    <input class="form-control floating-label" id="buscar" type="text" placeholder="Busqueda..."> 
-    <button type="submit" class="btn btn-primary pull-left btn-sm">Enviar</button>        
-</div>
-    </div>
-   
-          
-    <table class="table table-striped table-hover ">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Descripcion</th>
-            <th>Usuario</th>
-            <th>seleccionar</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="active">
-            <td>1</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="active">
-            <td>2</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="active">
-            <td>3</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="active">
-            <td>4</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="active">
-            <td>5</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="active">
-            <td>6</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="active">
-            <td>7</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-    </tbody>
-</table>              
-          
-</div>
-      
-      </div> 
       
       
       
@@ -335,7 +257,7 @@
             success: function(xml) {
                 $(xml).find('user-info').each(function(){
                     var name = $(this).find('name').text();
-                    $("#username").append("<h4>"+name+"</h4>");
+                    $("#username").append(name);
                 });
             }
         });

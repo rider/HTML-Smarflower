@@ -329,7 +329,7 @@ function getUrlVars() {
             success: function(xml) {
                 $(xml).find('user-info').each(function(){
                     var name = $(this).find('name').text();
-                    $("#username").append("<h4>"+name+"</h4>");
+                    $("#username").append(name);
                 }),
                 $(xml).find('plant-info').each(function(){
                     var name = $(this).find('name').text(),
